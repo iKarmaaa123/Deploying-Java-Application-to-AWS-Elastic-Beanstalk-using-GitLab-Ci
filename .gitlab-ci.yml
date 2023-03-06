@@ -5,7 +5,7 @@ build:
   stage: build
   image: openjdk:12-alpine
   script:
-    -./gradlew build
+    - ./gradlew build
   artifacts:
     paths:
       - ./build/libs/
