@@ -22,6 +22,9 @@ smoke test:
     - sleep 30
     - curl http://localhost:5000/actuator/health | grep "UP"
 
+variables:
+  S3_BUCKET: carsapi123
+
 deploy:
   stage: deploy
   image:
