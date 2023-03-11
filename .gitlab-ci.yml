@@ -24,9 +24,7 @@ smoke test:
 
 deploy:
   stage: deploy
-  image:
-    name: amazon/aws-cli
-    entrypoint: [""]
+  image: amazon/aws-cli
   script:
     - aws configure set region $AWS_REGION
     - aws s3 cp ./build/libs/cars-api.jar s3://$S3_BUCKET/cars-api.jar
