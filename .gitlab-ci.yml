@@ -25,7 +25,6 @@ smoke test:
 deploy:
   stage: deploy
   image: amazon/aws-cli
-  entrypoint: ""
   script:
     - aws configure set region $AWS_REGION
     - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
