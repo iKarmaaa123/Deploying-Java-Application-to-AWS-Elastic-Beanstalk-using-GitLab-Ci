@@ -23,7 +23,9 @@ smoke test:
     - curl http://localhost:5000/actuator/health | grep "UP"
 
 variables:
-  S3_BUCKET: carsapi123
+  AWS_ACCESS_KEY_ID: AKIAZODMIG3FQL3A4W5B
+  AWS_SECRET_ACCESS_KEY: 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
+  S3_BUCKET_NAME: carsapi123
 
 deploy:
   stage: deploy
@@ -32,4 +34,4 @@ deploy:
     entrypoint: [""]
   script:
     - aws configure set region us-east-1
-    - aws s3 cp build/libs/cars-api.jar s3://$S3_BUCKET/cars-api.jar
+    - aws s3 cp build/libs/cars-api.jar s3://$S3_BUCKET_NAME/cars-api.jar
