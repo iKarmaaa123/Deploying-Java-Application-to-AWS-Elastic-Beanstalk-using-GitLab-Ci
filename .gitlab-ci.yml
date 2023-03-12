@@ -22,11 +22,6 @@ smoke test:
     - sleep 30
     - curl http://localhost:5000/actuator/health | grep "UP"
 
-variables:
-  AWS_ACCESS_KEY_ID: AKIAZODMIG3FQL3A4W5B
-  AWS_SECRET_ACCESS_KEY: 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
-  S3_BUCKET_NAME: carsapi123
-
 deploy:
   stage: deploy
   image:
