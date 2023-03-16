@@ -31,11 +31,27 @@ smoke test:
     - sleep 30
     - curl http://localhost:5000/actuator/health | grep "UP"
 
-pdm test:
+code quality:
   stage: test
   image: openjdk:12-alpine
   script:
     - ./gradlew pmdMain pmdTest
+  artifacts:
+    when: always #this means that the artifact will always be saved even when the pipeline fails.
+    paths:
+      - build/reports/pmd
+
+unit tests:
+  stage: test
+  image: openjdk:12-alpine
+  script:
+    -./gradlew test
+  artifacts:
+    when: always
+    paths:
+      - build/reports/tests
+    reports:
+      junit: build/test-results/test/*.xml
 
 deploy:
   stage: deploy
