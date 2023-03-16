@@ -30,13 +30,15 @@ smoke test:
     - java -jar ./build/libs/$ARTIFACT_NAME &
     - sleep 30
     - curl http://localhost:5000/actuator/health | grep "UP"
-    - yum install -y jq
 
 deploy:
   stage: deploy
   image:
     name: amazon/aws-cli
     entrypoint: [""]
+  before_script:
+    - yum install -y jq
+
   script:
     - aws configure set region us-east-1
     - aws s3 cp build/libs/$ARTIFACT_NAME s3://$S3_BUCKET_NAME/$ARTIFACT_NAME
