@@ -85,3 +85,12 @@ api testing:
       - newman/
     reports:
       junit: newman/report.xml
+
+pages: #used to store results for application tests within GitLab pages in GitLab
+  stage: publishing
+  script:
+    - mkdir public
+    - mv newman/report.html public/index.html
+  artifacts:
+    paths:
+      - public
