@@ -5,9 +5,9 @@ variables:
 
 stages:
   - build
-  - test
   - deploy
   - post deploy
+  - test
 
 build:
   stage: build
