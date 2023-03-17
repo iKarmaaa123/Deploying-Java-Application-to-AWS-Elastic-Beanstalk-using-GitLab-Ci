@@ -45,7 +45,7 @@ unit tests:
   stage: test
   image: openjdk:12-alpine
   script:
-    -./gradlew test
+    - ./gradlew test
   artifacts:
     when: always
     paths:
