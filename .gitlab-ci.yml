@@ -49,9 +49,9 @@ unit tests:
   artifacts:
     when: always
     paths:
-      - build/reports/tests
+      - build/reports/tests/test
     reports:
-      junit: build/test-results/test/*.xml
+      junit: build/test-results/test/binary/*.xml
 
 deploy:
   stage: deploy
