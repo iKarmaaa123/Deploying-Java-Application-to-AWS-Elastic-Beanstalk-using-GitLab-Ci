@@ -8,7 +8,7 @@ stages:
   - test
   - deploy
   - post deploy
-  - pages
+  - publishing
 
 build:
   stage: build
